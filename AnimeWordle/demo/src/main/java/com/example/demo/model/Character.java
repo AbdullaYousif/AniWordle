@@ -12,7 +12,7 @@ public class Character{
     private String hairColor;
     private String specialAbilities;
     private String affiliation;
-    
+
     public Character(String nameOfSeries, String name, boolean gender, String hairColor, String specialAbilities, String affiliation) {
         this.nameOfSeries = nameOfSeries;
         this.name = name;
@@ -29,12 +29,15 @@ public class Character{
     /**
      * Compares two objects if they are equal.
      * If the objects being compared have the same reference, it's the same object
+     * 
      * If the objects being compared are both character objects, then comparison
-     * between each field is done and a message is printed in console accordingly
+     * between each field is done and a message is printed in console accordingly, 
+     * but this doesn't check if two characters have the same name because
+     * name check is a separate check
      * 
      * otherwise, the objects are not equal
      * @param anObject Object to be compared
-     * @return true or false, but value not being used
+     * @return true if the two objects share the same reference or if the character's attributes are all equal, false otherwise
      */
     @Override
     public boolean equals(Object anObject) {
@@ -42,41 +45,49 @@ public class Character{
             System.out.println("this is the same object");
             return true;
         }
-        else if(anObject instanceof Character) {
-            if(nameOfSeries.equalsIgnoreCase(((Character) anObject).getNameOfSeries())) {
+        else if(anObject instanceof Character character) {
+            boolean equals = true;
+            if(nameOfSeries.equalsIgnoreCase(character.getNameOfSeries())) {
                 System.out.println("Correct name of series");
             }
             else {
                 System.out.println("Wrong name of series");
+                equals = false;
             }
             
-            if(gender == ((Character) anObject).getGender()) {
+            if(gender == character.getGender()) {
                 System.out.println("Correct gender");
             }
             else {
                 System.out.println("Wrong gender");
+                equals = false;
             }
             
-            if(hairColor.equalsIgnoreCase(((Character) anObject).getHairColor())) {
+            if(hairColor.equalsIgnoreCase(character.getHairColor())) {
                 System.out.println("Correct hair color");
             }
             else {
                 System.out.println("Wrong hair color");
+                equals = false;
             }
             
-            if(specialAbilities.equalsIgnoreCase(((Character) anObject).getSpecialAbilities())) {
+            if(specialAbilities.equalsIgnoreCase(character.getSpecialAbilities())) {
                 System.out.println("Correct special ability");
             }
             else {
                 System.out.println("Wrong special ability");
+                equals = false;
             }
             
-            if(affiliation.equalsIgnoreCase(((Character) anObject).getAffiliation())) {
+            if(affiliation.equalsIgnoreCase(character.getAffiliation())) {
                 System.out.println("Correct affiliation");
             }
             else {
                 System.out.println("Wrong affiliation");
+                equals = false;
             }
+            
+            return equals;
         }
         
         return false;
