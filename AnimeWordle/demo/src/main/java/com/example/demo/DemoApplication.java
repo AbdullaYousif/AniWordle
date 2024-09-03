@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.example.demo.model.Character;
 @SpringBootApplication
+//This is the entry point of our application
 public class DemoApplication {
 
 	public static void main(String[] args) {
@@ -13,7 +14,6 @@ public class DemoApplication {
 		Scanner scan = new Scanner(System.in);
 		int misses = 0;
 		int guesses = 6;
-		boolean isCorrect;
 		Character Naruto = new Character("Naruto","Naruto Uzumaki",true,"Blonde","Ninjutsu","Hidden Leaf Village");
 
 		while(misses<guesses){
@@ -31,7 +31,7 @@ public class DemoApplication {
 			System.out.println("You've run out of guesses. You lost :(");
 		}
 	}
-
+	scan.close();
 }
 }
 

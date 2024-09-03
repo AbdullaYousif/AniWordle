@@ -2,6 +2,7 @@ package com.example.demo.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 @Entity
+//This is our Character Creation class, where a character is made based on specific characteristics.
 public class Character{
     @Id
     private Long id;
@@ -12,10 +13,6 @@ public class Character{
     private String specialAbilities;
     private String affiliation;
 
-    public Character(){
-
-    }
-    
     public Character(String nameOfSeries, String name, boolean gender, String hairColor, String specialAbilities, String affiliation) {
         this.nameOfSeries = nameOfSeries;
         this.name = name;
@@ -23,6 +20,10 @@ public class Character{
         this.hairColor = hairColor;
         this.specialAbilities = specialAbilities;
         this.affiliation = affiliation;
+    }
+
+    public Character(){
+        this(" ", " ", true, " ", " ", " ");
     }
     
     public Long getId(){
